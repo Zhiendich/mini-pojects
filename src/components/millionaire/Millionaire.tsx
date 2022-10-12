@@ -45,9 +45,9 @@ const Millionaire = () => {
         if (correctAnswer?.value !== rand) {
             const filterArr = question.answersOptions.filter(answer => answer.value == correctAnswer?.value || answer.value == rand)
             let newObj = {} as questionListProps | any
-            let iterator: string
+            let iterator: keyof questionListProps
             for (iterator in question) {
-                newObj[iterator] = question[iterator as keyof questionListProps]
+                newObj[iterator] = question[iterator]
                 if (iterator === "answersOptions") {
                     newObj[iterator] = filterArr
                 }
