@@ -23,6 +23,7 @@ const Millionaire = () => {
             setQuestionNumber(questionNumber + 1)
             changeSumPrice(question.price)
             setRandom(undefined)
+            setChangeAnswer(0)
             if (questionNumber === 4 || questionNumber === 9) {
                 setSavedSum(question.price)
             }
