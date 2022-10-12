@@ -13,6 +13,7 @@ const Calculator = () => {
         }
         setCalc(calc + value)
         if (!operators.includes(value)) {
+            // eslint-disable-next-line no-use-before-define
             setResult(eval(calc + value).toString())
         }
     }

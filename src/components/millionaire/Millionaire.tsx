@@ -10,6 +10,7 @@ const Millionaire = () => {
     const [random, setRandom] = useState<number | undefined>(undefined)
     const [lose, setLose] = useState(false)
     const [savedSum, setSavedSum] = useState(0)
+    // eslint-disable-next-line no-use-before-define
     const [questions, setQuestions] = useState(questionList)
     const [question, setQuestion] = useState<questionListProps>(questions[questionNumber])
     const nextQuestion = () => {

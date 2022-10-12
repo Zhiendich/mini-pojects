@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { AnswerProps } from './types/questionList'
 
 const Answer = ({ answerText, value, setChangeAnswer, changeColor }: AnswerProps) => {
+    // eslint-disable-next-line no-use-before-define
     const [radio, setRadio] = useState(value)
     const changeRadio = () => {
         setChangeAnswer?.(radio)
