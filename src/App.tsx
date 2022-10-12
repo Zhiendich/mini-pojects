@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Link } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='ml-3 mt-4 text-[30px]'>
+      <h2 >
+        <Link to={'millionaire'}>1. Миллионер</Link>
+      </h2>
+      <h2 >
+        <Link to={'calculator'}>2. Калькулятор</Link>
+      </h2>
+      <h2 >
+        <Link to={'randomizer'}>3. Рандомизатор</Link>
+      </h2>
     </div>
   );
 }
