@@ -10,11 +10,13 @@ const Millionaire = () => {
     const [random, setRandom] = useState<number | undefined>(undefined)
     const [lose, setLose] = useState(false)
     const [savedSum, setSavedSum] = useState(0)
-    // eslint-disable-next-line no-use-before-define
     const [questions, setQuestions] = useState(questionList)
     const [question, setQuestion] = useState<questionListProps>(questions[questionNumber])
     const nextQuestion = () => {
-        console.log(question)
+        if (changeAnswer === 0) {
+            alert('Выберите вариант!')
+            return
+        }
         const correctAnswer = question.answersOptions.find(answer => answer.isCorrect)
         if (changeAnswer === correctAnswer?.value) {
             setQuestion(questions[questionNumber + 1])
@@ -37,10 +39,10 @@ const Millionaire = () => {
         e.currentTarget.style.opacity = '0.5'
     }
     const fiftyFifty = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const correctAnswer = question.answersOptions.findIndex(answer => answer.isCorrect)
+        const correctAnswer = question.answersOptions.find(answer => answer.isCorrect)
         const rand = Math.floor(1 + Math.random() * (question.answersOptions.length - 1));
-        if (correctAnswer !== rand) {
-            const filterArr = question.answersOptions.filter(answer => answer.value !== correctAnswer && answer.value !== rand)
+        if (correctAnswer?.value !== rand) {
+            const filterArr = question.answersOptions.filter(answer => answer.value == correctAnswer?.value || answer.value == rand)
             let newObj = {} as questionListProps | any
             let iterator: string
             for (iterator in question) {
@@ -52,6 +54,9 @@ const Millionaire = () => {
             setQuestion(newObj)
             e.currentTarget.disabled = true
             e.currentTarget.style.opacity = '0.5'
+        }
+        else {
+            fiftyFifty(e)
         }
     }
     return (
