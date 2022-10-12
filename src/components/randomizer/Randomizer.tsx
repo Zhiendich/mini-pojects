@@ -15,7 +15,7 @@ const Randomizer = () => {
     }
     const randomize = (e: MouseEvent<HTMLButtonElement>) => {
         if (validation()) {
-            if (checkbox == true) {
+            if (checkbox === true) {
                 unicRandomize(e)
                 return
             }
@@ -29,7 +29,7 @@ const Randomizer = () => {
         if (unicValue.has(rand) && unicValue.size < +max - +min + 1) {
             unicRandomize(e)
         }
-        else if (unicValue.has(rand) && unicValue.size == +max - +min + 1) {
+        else if (unicValue.has(rand) && unicValue.size === +max - +min + 1) {
             alert('Уникальных чисел больше нет!!')
             e.currentTarget.disabled = true
             e.currentTarget.style.opacity = '0.7'

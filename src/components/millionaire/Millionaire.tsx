@@ -20,7 +20,7 @@ const Millionaire = () => {
             setQuestionNumber(questionNumber + 1)
             changeSumPrice(question.price)
             setRandom(undefined)
-            if (questionNumber == 4 || questionNumber == 9) {
+            if (questionNumber === 4 || questionNumber === 9) {
                 setSavedSum(question.price)
             }
         }
@@ -55,7 +55,7 @@ const Millionaire = () => {
     }
     return (
         <div className=' max-w-[800px] container mx-auto'>
-            {lose && savedSum == 0 ? <h1 className='text-center mt-5 text-[40px] text-[bold]'>К сожалению вы проиграли</h1>
+            {lose && savedSum === 0 ? <h1 className='text-center mt-5 text-[40px] text-[bold]'>К сожалению вы проиграли</h1>
                 :
                 lose && savedSum > 0 ? <h1 className='text-center mt-5 text-[40px] text-[bold]'>К сожалению вы проиграли но у вас остался несгораемый выиграш {savedSum}$</h1>
                     :

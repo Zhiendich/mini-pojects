@@ -6,8 +6,8 @@ const Calculator = () => {
     const [calc, setCalc] = useState("")
     const [result, setResult] = useState("")
     const updateInput = (value: string) => {
-        if (operators.includes(value) && calc === "" ||
-            operators.includes(value) && operators.includes(calc.slice(-1))
+        if ((operators.includes(value) && calc === "") ||
+            (operators.includes(value) && operators.includes(calc.slice(-1)))
         ) {
             return
         }
@@ -17,7 +17,7 @@ const Calculator = () => {
         }
     }
     const deleteLast = () => {
-        if (calc == '') {
+        if (calc === '') {
             return
         }
         setCalc(calc.slice(0, calc.length - 1))
