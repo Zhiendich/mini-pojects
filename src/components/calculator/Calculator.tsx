@@ -7,13 +7,12 @@ const Calculator = () => {
     const [result, setResult] = useState("")
     const updateInput = (value: string) => {
         if ((operators.includes(value) && calc === "") ||
-            (operators.includes(value) && operators.includes(calc.slice(-1)))
+            (operators.includes(value) && operators.includes(calc.slice(-1)) || calc.length > 12)
         ) {
             return
         }
         setCalc(calc + value)
         if (!operators.includes(value)) {
-            // eslint-disable-next-line no-use-before-define
             setResult(eval(calc + value).toString())
         }
     }
