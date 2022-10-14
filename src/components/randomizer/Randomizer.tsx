@@ -7,10 +7,12 @@ const Randomizer = () => {
     const [checkbox, setCheckBox] = useState(false)
     const [unicValue, setUnicValue] = useState(() => new Set())
     const validation = () => {
-        if (min !== '' && max !== '' && +min < +max) {
+        if (min !== '' && max !== '' && +min < +max && +min > -10000000 && +max < 10000000) {
             return true
         }
         alert('Выберите правильный диапазон!')
+        setMin('')
+        setMax('')
         return false
     }
     const randomize = (e: MouseEvent<HTMLButtonElement>) => {

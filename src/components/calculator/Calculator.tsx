@@ -6,8 +6,13 @@ const Calculator = () => {
     const [calc, setCalc] = useState("")
     const [result, setResult] = useState("")
     const updateInput = (value: string) => {
-        if ((operators.includes(value) && calc === "") ||
-            (operators.includes(value) && operators.includes(calc.slice(-1)) || calc.length > 12)
+        if ((operators.includes(value) && calc === "")
+            ||
+            (operators.includes(value) && operators.includes(calc.slice(-1)))
+            || (calc === "0" && value === '0')
+            || (calc.slice(-1) === '.' && value === '.')
+            || (calc === '' && value === '.')
+            || calc.length > 12
         ) {
             return
         }
@@ -27,7 +32,7 @@ const Calculator = () => {
             <div className='bg-[#121A26] text-white min-h-[380px] max-w-[420px] p-3 rounded-2xl w-full'>
                 <div className='text-right '>
                     <span className='text-[20px] mr-2' >{result ? `(${result})` : ''}</span>
-                    <span className='text-[25px]'>{calc || '0'} </span>
+                    <span className='text-[25px]'>{calc || ''} </span>
                 </div>
                 <div className="flex justify-around my-5">
                     {operators

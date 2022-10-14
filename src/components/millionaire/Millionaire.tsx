@@ -43,7 +43,7 @@ const Millionaire = () => {
         const correctAnswer = question.answersOptions.find(answer => answer.isCorrect)
         const rand = Math.floor(1 + Math.random() * (question.answersOptions.length - 1));
         if (correctAnswer?.value !== rand) {
-            const filterArr = question.answersOptions.filter(answer => answer.value == correctAnswer?.value || answer.value == rand)
+            const filterArr = question.answersOptions.filter(answer => answer.value === correctAnswer?.value || answer.value === rand)
             let newObj = {} as questionListProps | any
             let iterator: keyof questionListProps
             for (iterator in question) {
